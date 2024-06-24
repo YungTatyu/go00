@@ -1,6 +1,4 @@
 BINARY_NAME	:= main.out
-SRCS_DIRS	:= .
-SRCS			:= $(shell find ${SRCS_DIRS} -name '*.go')
 RM				:= rm -f
 
 all:	build
@@ -23,6 +21,6 @@ fclean:	clean
 re:	fclean	all
 
 format:
-	go fmt ${SRCS} 
+	go fmt ./...
 
 .PHONY: all clean fclean re test format
