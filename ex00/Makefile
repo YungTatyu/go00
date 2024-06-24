@@ -6,7 +6,7 @@ RM				:= rm -f
 all:	build
 
 build:
-	go build -o ${BINARY_NAME} ${SRCS} 
+	go build -o ${BINARY_NAME} main.go
 
 test:
 	go test -v ./... 
@@ -18,9 +18,11 @@ clean:
 	go clean
 	${RM} ${BINARY_NAME}
 
-re:	clean	all
+fclean:	clean
+
+re:	fclean	all
 
 format:
 	go fmt ${SRCS} 
 
-.PHONY: all clean re test format
+.PHONY: all clean fclean re test format

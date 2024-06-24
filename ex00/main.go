@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"ex00/vender/ft"
 )
 
 func main() {
-	var message string
 	for c := 'a'; c <= 'z'; c++ {
-		message += string(c)
+		ft.PrintRune(c)
 	}
-	fmt.Println(message)
+	ft.PrintRune('\n')
 }
