@@ -1,6 +1,6 @@
 package piscine
 
-import "ex03/vender/ft"
+import "ft"
 
 func print(str string) {
 	for _, v := range str {

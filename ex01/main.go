@@ -1,7 +1,7 @@
 package main
 
 import (
-	"ex01/vender/ft"
+	"ft"
 )
 
 func main() {
