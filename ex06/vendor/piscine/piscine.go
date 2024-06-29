@@ -21,15 +21,19 @@ func generateCombinations(prefix string, start int, n int, combinations *[]strin
 	}
 }
 
+func printCombinations(combinations[] string) {
+	Print(combinations[0])
+	for _, comb := range combinations[1:] {
+		Print(", " + comb)
+	}
+	ft.PrintRune('\n')
+}
+
 func PrintCombN(n int) {
 	if n <= 0 || n >= 10 {
 		return
 	}
 	var combinations []string
 	generateCombinations("", 0, n, &combinations)
-	Print(combinations[0])
-	for _, comb := range combinations[1:] {
-		Print(", " + comb)
-	}
-	ft.PrintRune('\n')
+	printCombinations(combinations)
 }
