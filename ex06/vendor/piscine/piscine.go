@@ -10,30 +10,14 @@ func Print(str string) {
 	}
 }
 
-func printRunes(s string) {
-	for i, r := range s {
-		if i > 0 {
-			Print(", ")
-		}
-		Print(string(r))
-	}
-}
-
-func generateCombinations(prefix string, start int, n int) {
+func generateCombinations(prefix string, start int, n int, combinations *[]string) {
 	if len(prefix) == n {
-		Print(prefix)
+		*combinations = append(*combinations, prefix)
 		return
 	}
 
 	for i := start; i <= 9; i++ {
-		if len(prefix)+1 == n {
-			Print(prefix + string(rune('0'+i)))
-			if prefix != "" || i < 9 {
-				Print(", ")
-			}
-		} else {
-			generateCombinations(prefix+string(rune('0'+i)), i+1, n)
-		}
+		generateCombinations(prefix+string(rune('0'+i)), i+1, n, combinations)
 	}
 }
 
@@ -41,6 +25,11 @@ func PrintCombN(n int) {
 	if n <= 0 || n >= 10 {
 		return
 	}
-	generateCombinations("", 0, n)
+	var combinations []string
+	generateCombinations("", 0, n, &combinations)
+	Print(combinations[0])
+	for _, comb := range combinations[1:] {
+		Print(", " + comb)
+	}
 	ft.PrintRune('\n')
 }
