@@ -22,8 +22,11 @@ func generateCombinations(prefix string, start int, n int, combinations *[]strin
 }
 
 func printCombinations(combinations[] string) {
-	Print(combinations[0])
-	for _, comb := range combinations[1:] {
+	for i, comb := range combinations {
+		if (i == 0) {
+			Print(comb)
+			continue
+		}
 		Print(", " + comb)
 	}
 	ft.PrintRune('\n')
